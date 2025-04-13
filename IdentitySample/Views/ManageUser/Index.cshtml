@@ -1,0 +1,54 @@
+﻿ @model List<IdentitySample.Models.ViewModel.RoleManager.IndexViewModel>
+
+@{
+    ViewBag.Title = "Manage User";
+}
+
+<h2>Manage User</h2>
+@if (!Model.Any())
+{
+    <h3 class="text-danger">list user is empty</h3>
+}
+else
+{
+    @foreach (var item in Model)
+    {
+        <div class="card mt-2 mb-2">
+            <div class="card-header">
+                @item.UserName
+            </div>
+            <div class="card-body">
+                @item.Email
+            </div>
+            <div class="card-footer">
+                <form asp-controller="ManageUser" asp-action="DeleteUser"
+                      asp-route-id="@item.Id">
+                    <a asp-controller="ManageUser" asp-action="EditUser"
+                       asp-route-id="@item.Id" class="btn btn-warning">
+                        Edit User
+                    </a>
+                    <a asp-controller="ManageUser" asp-action="AddRoleToUser"
+                       asp-route-id="@item.Id"
+                       class="btn btn-success">
+                        Add Role To User
+                    </a>
+                    <a asp-controller="ManageUser" asp-action="RemoveRoleFromUser"
+                       asp-route-id="@item.Id" class="btn btn-info">
+                        Remove Role From User
+                    </a>
+                    <a asp-controller="ManageUser" asp-action="AddUserToClaim"
+                       asp-route-id="@item.Id" class="btn btn-info">
+                        Add User To Claim
+                    </a>
+                    <a asp-controller="ManageUser" asp-action="RemoveUserToClaim"
+                       asp-route-id="@item.Id" class="btn btn-info">
+                        Remove User To Claim
+                    </a>
+                    <button type="submit" class="btn btn-danger">
+                        Delete User
+                    </button>
+                </form>
+            </div>
+        </div>
+    }
+}

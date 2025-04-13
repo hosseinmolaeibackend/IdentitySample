@@ -1,0 +1,26 @@
+﻿@model AddOrRemoveClaimViewModel
+
+<h2>Add Claim to User</h2>
+
+@if (!Model.UserClaims.Any())
+{
+    <h3>claims is empty.</h3>
+
+}
+else
+{
+    <form asp-controller="ManageUser" asp-action="AddUserToClaim" method="post">
+        <div asp-validation-summary="ModelOnly"></div>
+        @for (int i = 0; i < Model.UserClaims.Count; i++)
+        {
+            <div class="form-group">
+                <input asp-for="@Model.UserClaims[i].IsSelected" />
+                <label>@Model.UserClaims[i].ClaimType</label>
+
+                <input type="hidden" asp-for="@Model.UserClaims[i].ClaimType" />
+            </div>
+        }
+        <input type="hidden" asp-for="@Model.UserId" />
+        <button type="submit" class="btn btn-info mt-3">Submit</button>
+    </form>
+}

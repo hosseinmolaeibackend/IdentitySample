@@ -1,0 +1,16 @@
+﻿@model RoleValidateGuidViewModel
+
+<h1>RoleValidationGuid</h1>
+
+<form asp-controller="Role" asp-action="RoleValidationGuid" method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="from-group">
+        <label class="form-label" asp-for="@Model.Value"></label>
+        <input readonly="readonly" asp-for="@Model.Value" />
+    </div>
+    <div class="form-group">
+        <label class="form-label" asp-for="@Model.LastChangeTime"></label>
+        <input readonly="readonly" asp-for="@Model.LastChangeTime" />
+    </div>
+    <button class="btn btn-primary" type="submit">Generate New Guid</button>
+</form>

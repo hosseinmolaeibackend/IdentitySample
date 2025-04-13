@@ -1,0 +1,25 @@
+﻿@model List<SiteSetting>
+
+<a class="btn btn-success" asp-controller="Role" asp-action="RoleValidationGuid">RoleValidationGuid</a>
+
+@if (!Model.Any())
+{
+    <h2>No setting found</h2>
+}
+else
+{
+    for (int i = 0; i < Model.Count; i++)
+    {
+        <div class="card mt-2">
+            <div class="card-heaer">
+                SiteSetting Key: <b>@Model[i].Key</b>
+            </div>
+            <div class="card-body">
+                SiteSetting Value: <b>@Model[i].Value</b>
+            </div>
+            <div class="card-footer">
+                Last time value changed =@Model[i].LastTimeChanged
+            </div>
+        </div>
+    }
+}

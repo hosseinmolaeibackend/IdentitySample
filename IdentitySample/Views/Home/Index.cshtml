@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@section Style{
+    <style>
+        .profile-card {
+            max-width: 400px;
+            margin: 2rem auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+}
+
+<!--<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+-->
+<div class="container py-5">
+    <div class="profile-card card text-center">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Hossein Molaei</h3>
+        </div>
+
+        <div class="card-body">
+            <!-- تصویر پروفایل -->
+            <img src="~/img/photo_5901983757555059554_y.jpg" alt="عکس پروفایل" class="profile-img rounded-circle mb-3">
+
+            <!-- آدرس سایت -->
+            <div class="mb-4">
+                <i class="fas fa-globe me-2 text-primary"></i>
+                <a href="https://hosseinmolaeibackend.github.io/" target="_blank" class="text-decoration-none">
+                    https://hosseinmolaeibackend.github.io/
+                </a>
+            </div>
+
+            <!-- لینکدین -->
+            <div class="list-group">
+                <a href="https://www.linkedin.com/in/hossein-molaei-87424a232/" target="_blank"
+                   class="list-group-item list-group-item-action d-flex align-items-center">
+                    <i class="fab fa-linkedin me-2 text-primary fs-5"></i>
+                    <span style="
+text-align: center;
+    width: 100%;
+    font-weight: bolder;
+    color: green;
+    text-shadow: 1px 0px green;
+"
+                        >LinkedIn profile</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="card-footer text-muted">
+            <small>Asp.Net Core | Software Engineer</small>
+        </div>
+    </div>
+</div>

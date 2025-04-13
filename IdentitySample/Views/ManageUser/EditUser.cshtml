@@ -1,0 +1,14 @@
+﻿@model IdentityUser
+
+<h1>Edit user</h1>
+@ViewData["error"]
+<form asp-controller="ManageUser" asp-action="EditUser" method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group mb-2">
+        <label asp-for="UserName" class="form-label"></label>
+        <input asp-for="UserName" class=" form-control"/>
+    </div>
+    <button class="btn btn-primary">submit</button>
+</form>

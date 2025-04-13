@@ -1,0 +1,41 @@
+﻿@model AddUserToViewModel
+
+@{
+    ViewData["Title"] = "Remove Roles from User";
+}
+
+<h2>Remove Roles from User</h2>
+
+@if (Model.UserRoles.Any())
+{
+    <form asp-action="RemoveRoleFromUser" method="post">
+        <input type="hidden" asp-for="UserId" />
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Role Name</th>
+                    <th>Select to Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.UserRoles.Count; i++)
+                {
+                    <tr>
+                        <td>@Model.UserRoles[i].RoleName</td>
+                        <td>
+                            <input type="checkbox" asp-for="@Model.UserRoles[i].IsSelected" />
+                            <input type="hidden" asp-for="@Model.UserRoles[i].RoleName" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <button type="submit" class="btn btn-danger">Remove Selected Roles</button>
+    </form>
+}
+else
+{
+    <p>No roles assigned to this user.</p>
+}
